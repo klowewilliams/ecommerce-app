@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/almonds" => 'products#almonds'
   get "/walnuts" => 'products#walnuts'
   get "/cashews" => 'products#cashews'
+  get "/products/:id" => 'products#show'
 end
