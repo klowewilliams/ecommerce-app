@@ -26,4 +26,11 @@ class ProductsController < ApplicationController
     @nut.update(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
   end
 
+  def destroy
+    product_id = params[:id]
+    @nut = Product.find_by(id: product_id)
+    @nut.destroy
+
+  end
+
 end
