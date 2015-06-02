@@ -84,8 +84,10 @@
 <h1> Kim's Gone Nuts!!</h1>
 </div>
 <div class="main">
+<%= link_to "Add New Product", "/products/new" %>
 <% @nuts.each do |nut| %>
-<h2><%= nut.name.capitalize %></h2>
+<a href="/products/<%= nut.id %>"><h2><%= nut.name.capitalize %></h2></a>
+<!-- INSERT LINK TO OPTION HERE-->
 <h3><img src="<%= nut.image %>"></h3>
 <h3><%= nut.price %></h3>
 <h3><%= nut.description %></h3> 

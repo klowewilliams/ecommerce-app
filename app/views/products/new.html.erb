@@ -1,0 +1,29 @@
+<h2> Use this form for adding a new product </h2>
+
+<%= form_tag '/products', meohod: :post do %>
+  <div>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  </div>
+
+  <div>
+  <%= label_tag :image %>
+  <!-- <%= file_field_tag :image %> -->
+  <%= text_field_tag :image %>
+  </div>
+
+  <div>
+  <%= label_tag :price %>
+  <%= text_field_tag :price %>
+  </div>
+
+  <div>
+  <%= label_tag :description %>
+  <%= text_field_tag :description %>
+  </div>
+
+  <div>
+  <%= submit_tag "New Product" %>
+  </div>
+
+<% end %>
