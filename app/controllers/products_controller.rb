@@ -15,4 +15,15 @@ class ProductsController < ApplicationController
     Product.create(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
   end
 
+  def edit
+    product_id = params[:id]
+    @nut = Product.find_by(id: product_id)
+  end
+
+  def update
+    product_id = params[:id]
+    @nut = Product.find_by(id: product_id)
+    @nut.update(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
+  end
+
 end

@@ -1,4 +1,10 @@
-<h1><%= @nut.name.capitalize %></h1>
-<div class="product"><img src="<%= @nut.image %>"></div>
-<h3><%= @nut.price %></h3>
-<h3><%= @nut.description %></h3>
+<!--This is the individual product page for each nut -->
+<div class="product_page">
+
+  <h1><%= @nut.name.capitalize %></h1>
+  <div class="product"><img src="<%= @nut.image %>"></div>
+  <h3><%= @nut.price %></h3>
+  <h3><%= @nut.description %></h3>
+  <%= link_to "Edit this page", "/products/#{@nut.id}/edit" %>
+
+</div>
