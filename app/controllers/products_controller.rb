@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
+    flash[:success] = "You've added a new nut! Welcome to the asylum."
     redirect_to "/products/#{product.id}"
   end
 
@@ -25,6 +26,7 @@ class ProductsController < ApplicationController
     product_id = params[:id]
     @nut = Product.find_by(id: product_id)
     @nut.update(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
+    flash[:info] = "Way to keep those nuts fresh!"
     redirect_to "/products/#{product_id}"
   end
 
@@ -32,6 +34,7 @@ class ProductsController < ApplicationController
     product_id = params[:id]
     @nut = Product.find_by(id: product_id)
     @nut.destroy
+    flash[:danger] = "No more nut!"
     redirect_to "/products"
   end
 
