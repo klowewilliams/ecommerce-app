@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
 
   def sale_message
-    if price.to_i < 2
+    if price < 2
       return " Discount Item"
     else 
       return " Sale Item!!"
@@ -9,11 +9,11 @@ class Product < ActiveRecord::Base
   end
 
   def tax
-    price.to_f * 0.09
+    price * 0.09
     #Jay says not to use this
   end
 
   def total
-    price.to_f + tax
+    price + tax
   end
 end
