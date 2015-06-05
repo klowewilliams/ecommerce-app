@@ -7,4 +7,13 @@ class Product < ActiveRecord::Base
       return " Sale Item!!"
     end
   end
+
+  def tax
+    price.to_f * 0.09
+    #Jay says not to use this
+  end
+
+  def total
+    price.to_f + tax
+  end
 end

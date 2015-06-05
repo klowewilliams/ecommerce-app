@@ -1,13 +1,22 @@
 <!--This is the individual product page for each nut -->
-<div class="product_page">
 
+<div class="product_page">
   <h1><%= @nut.name.capitalize %></h1>
   <div class="product"><img src="<%= @nut.image %>"></div>
   <h3><%= @nut.price %><%= @nut.sale_message %></h3>
   <h3><%= @nut.description %></h3>
-  <%= link_to "Edit this page", "/products/#{@nut.id}/edit" %>
-  </br>
-  <%= link_to "Delete this item", "/products/#{@nut.id}", method: :delete %>
-
-
+  
+  <h4>Tax amount: <%= @nut.tax.round(2) %> </h4>
+  <h4>Total price: <%= number_to_currency(@nut.total) %></h4>
+<div class="row">
+    <div class="col-md-3">
+ <button type="button" class="btn btn-success"> <%= link_to "Edit this page", "/products/#{@nut.id}/edit" %></button>
+ </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+  <button type="button" class="btn btn-default"><%= link_to "Delete this item", "/products/#{@nut.id}", method: :delete %></button>
+  </div>
 </div>
