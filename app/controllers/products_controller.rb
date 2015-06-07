@@ -6,10 +6,23 @@ class ProductsController < ApplicationController
       @nuts = Product.order(params[:sort])
     end
 
+    if params[:sort_order]
+      @nuts = Product.order(price: :desc)
+      #@nuts = Product.order(params[:sort] => params[:sort_order]) -- flexible coding
+    end
+
+    if params[:discount]
+      @nuts = Product.where("price < ?", 2)
+    end
   end
 
   def show
+    if params[:id] == "random"
+      nuts = Product.all
+      @nut = nuts.sample
+    else
     @nut = Product.find_by(id: params[:id])
+    end
   end
 
   def new
