@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#Use mysql2 as the database for Active Record
+gem 'mysql2'
+# Use seed_dump to easily add db data for migrating
+gem 'seed_dump', '~> 3.2.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'

@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Product.create!([
+  {name: "pistachios", price: "1.69", image: "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Pistachios_in_shells.jpg/800px-Pistachios_in_shells.jpg", description: "This nut is a member of the cashew family, is a small tree originating from Central Asia and the Middle East.", in_stock: nil},
+  {name: "cashews", price: "2.0", image: "http://upload.wikimedia.org/wikipedia/commons/3/3c/CashewSnack.jpg", description: "Cashew nuts are a popular snack and food source. Cashews, unlike other oily tree nuts, contain starch to about 10% of their weight. This makes them more effective than other nuts in thickening water-based dishes such as soups, meat stews, and some Indian milk-based desserts.", in_stock: nil},
+  {name: "almonds", price: "1.89", image: "http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Smoked_almonds.JPG/800px-Smoked_almonds.JPG", description: "The name of the edible and widely cultivated seed of the almond tree. Touted to reduce risk of cancer.", in_stock: nil},
+  {name: "walnuts", price: "1.29", image: "http://www.dfaofca.com/wp-content/uploads/2012/01/walnuts.jpg", description: "A walnut is the nut of any tree of the genus Juglans (Family Juglandaceae), particularly the Persian or English walnut, Juglans regia. It is used for food after being processed while green for pickled walnuts or after full ripening for its nutmeat.", in_stock: nil},
+  {name: "pecans", price: "1.89", image: "http://conway.locallygrown.net/files/product/image/113662/original/photo.jpg?1356485474", description: "a species of hickory native to Mexico and the southcentral and southeastern regions of the United States.[1][2]  \"Pecan\" is from an Algonquian word meaning a nut requiring a stone to crack.", in_stock: nil},
+  {name: "Macadamia", price: "3.0", image: "http://cdn.shopify.com/s/files/1/0275/2899/products/macadamia_nut.jpg?v=1398249626", description: "Great for the skin.", in_stock: nil},
+  {name: "Brazil", price: "2.12", image: "https://thepaleopact.files.wordpress.com/2014/12/shutterstock_103452743.jpg", description: "Tasty and from Brazil... we think.", in_stock: nil},
+  {name: "Coconut", price: "4.15", image: "https://www.thesleuthjournal.com/wp-content/uploads/2015/05/coconut.jpg", description: "They're everywhere.", in_stock: nil},
+  {name: "Hazelnuts", price: "3.3", image: "http://www.bestherbalhealth.com/wp-content/uploads/2014/01/hazelnuts1.jpg", description: "Giselle's favorite yet to be discovered.", in_stock: nil},
+  {name: "Chestnuts", price: "2.5", image: "http://www.foods-healing-power.com/images/250xNxchestnuts.jpg.pagespeed.ic.6vSGB0ehux.webp", description: "Chestnuts are the only low-fat nuts, with a fraction of the calories of other types of nuts. They contain just 1 gram of fat and a little less than 70 calories per 30 grams of dried or roasted nuts.", in_stock: nil}
+])
