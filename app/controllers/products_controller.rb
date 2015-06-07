@@ -55,4 +55,11 @@ class ProductsController < ApplicationController
     redirect_to "/products"
   end
 
+  def search
+    search_term = params[:search]
+    @nuts = Product.where("name LIKE ?", "%#{search_term}%")
+    render :index
+    #Don't look for a view to match this action
+  end
+
 end
