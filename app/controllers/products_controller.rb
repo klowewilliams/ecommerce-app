@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
 
   def index
     @nuts = Product.all
+     if params[:sort]
+      @nuts = Product.order(params[:sort])
+    end
+
   end
 
   def show
