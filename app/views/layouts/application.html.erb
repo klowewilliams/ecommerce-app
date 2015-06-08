@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EcommerceApp</title>
+  <title>Kim's Gone Nuts</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -39,11 +39,14 @@
             </ul>
           </li>
         </ul>
-            <%= form_tag '/search', method: :post do %>
-    <%= label_tag :search %>
-    <%= text_field_tag :search %>
-    <%= submit_tag "Search" %>
-    <% end %>
+        
+        <%= form_tag "/search", method: :post, class: "navbar-form navbar-right", role: "search" do%>
+        <div class="form-group">
+         <%= text_field_tag :search, "Search", class: "form_control" %>
+       </div>
+       <%= submit_tag "Search", class: "btn btn-default", type: "submit" %>
+       <% end %>
+
         <!-- <ul class="nav navbar-nav">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other Resources <span class="caret"></span></a>
@@ -55,6 +58,7 @@
             </ul>
           </li>
         </ul> -->
+
         <button type="button" class="btn btn-default navbar-btn">Sign in/Register</button>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -74,4 +78,5 @@
     <%= yield %> <!-- replaced by individual views -->
   </div>
 </body>
+
 </html>
