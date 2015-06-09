@@ -1,13 +1,18 @@
 <!--This is the individual product page for each nut -->
 
 <div class="product_page">
+  <div class="row">
+        
   <h1><%= @nut.name.capitalize %></h1>
   <h4>Imported from: <%= @nut.supplier.name %></h4>
   
   <% @nut.images.each do |image| %>
+  <div class="col-md-6">
   <div class="product">
   <%= image_tag image.image_url %></div>
+  </div>
   <% end %>
+  </div>
 
 
   <h3><%= number_to_currency(@nut.price) %><%= @nut.sale_message %></h3>
