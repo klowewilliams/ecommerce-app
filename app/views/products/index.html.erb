@@ -46,7 +46,7 @@
           <a href="/products/<%= nut.id %>"><h2><%= nut.name.capitalize %></h2></a>
           <!-- INSERT LINK TO OPTION HERE-->
           
-          <h3><img src="<%= nut.image %>"></h3>
+          <%= image_tag nut.images.first.image_url %>
           
           
           <h3><%= number_to_currency(nut.price) %></h3>
