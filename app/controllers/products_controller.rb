@@ -30,6 +30,11 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
+
+    Image.create(product_id: @nut.id, image_url: params[:image_1]) if params[:image_1] != ""
+    Image.create(product_id: @nut.id, image_url: params[:image_2]) if params[:image_2] != ""
+
+
     flash[:success] = "You've added a new nut! Welcome to the asylum."
     redirect_to "/products/#{product.id}"
   end

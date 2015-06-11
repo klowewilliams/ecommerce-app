@@ -39,20 +39,21 @@
     <div class="main">
 
       <%= link_to "Add New Product", "/products/new" %>
-      
-      <% @nuts.each do |nut| %>
       <div class="row">
-        <div class="col-md-4">
+
+      <% @nuts.each do |nut| %>
+        <div class="col-md-3">
+        
           <a href="/products/<%= nut.id %>"><h2><%= nut.name.capitalize %></h2></a>
           <!-- INSERT LINK TO OPTION HERE-->
           
           <%= image_tag nut.images.first.image_url %>
           
-          
           <h3><%= number_to_currency(nut.price) %></h3>
           <h3><%= nut.description %></h3> 
-        </div>
-        <% end %>
+          </div>
+      <% end %>
+
 
         
       </div>

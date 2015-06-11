@@ -47,19 +47,27 @@
        <%= submit_tag "Search", class: "btn btn-default", type: "submit" %>
        <% end %>
 
-        <!-- <ul class="nav navbar-nav">
-          <li class="dropdown">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+       <li><%= link_to "Sign In", "/users/sign_in" if not current_user %></li>
+       <li><%= link_to "Sign Up", "/users/sign_up" if not current_user %></li>
+       </ul>
+       </div>
+
+       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></li>
+
+          <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other Resources <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Paleo Site</a></li>
               <li><a href="#">Nut Recipes</a></li>
               <li><a href="#">Organic</a></li>
-              <li class="divider"></li>
+              <li class="divider"></li> -->
             </ul>
-          </li>
+          <!-- </li>
         </ul> -->
-
-        <button type="button" class="btn btn-default navbar-btn">Sign in/Register</button>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
