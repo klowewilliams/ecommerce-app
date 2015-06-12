@@ -4,6 +4,10 @@
 
 <div>
 <h4>Your order number is: <%= 500 + @order.id %></h4>
-<h4> Quantity: <%= @order.quantity %> </h4>
+<h4> Quantity: <%= number_to_currency(@order.quantity) %> </h4>
+<h4> Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
+<h4> Tax: <%= number_to_currency(@order.tax) %></h4>
+<h4> Total: <%= number_to_currency(@order.total_price) %></h4>
+<h4> Ordered by: <%= current_user.email %></h4>
 
 </div>
