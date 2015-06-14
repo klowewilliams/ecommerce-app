@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     end
 
     if params[:category]
-      @nuts = Product.find_by(name: params[:category]).products
+      @nuts = Category.find_by(name: params[:category]).products
     end
   end
 
@@ -27,6 +27,11 @@ class ProductsController < ApplicationController
     else
     @nut = Product.find_by(id: params[:id])
     end
+
+    if params[:category]
+      @nut = Product.find_by(name: params[:category]).products
+    end
+
   end
 
   def new
