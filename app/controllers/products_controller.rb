@@ -14,6 +14,10 @@ class ProductsController < ApplicationController
     if params[:discount]
       @nuts = Product.where("price < ?", 2)
     end
+
+    if params[:category]
+      @nuts = Product.find_by(name: params[:category]).products
+    end
   end
 
   def show
