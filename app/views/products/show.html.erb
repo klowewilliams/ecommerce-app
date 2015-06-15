@@ -5,8 +5,8 @@
 
     <h1><%= @nut.name.capitalize %></h1>
     <h4>Imported from: <%= @nut.supplier.name %></h4>
-    Category: <% @nut.categories.each do |category| %> 
-    <%= category.name %>
+    <h4>Category:</h4> <% @nut.categories.each do |category| %> 
+    <p><%= category.name %></p>
     <% end %>
 
     <% @nut.images.each do |image| %>
