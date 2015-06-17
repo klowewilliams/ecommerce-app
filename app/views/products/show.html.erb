@@ -37,7 +37,7 @@
 
     <div class="checkout_form">
     <h1>PURCHASE THIS ITEM NOW </h1>
-      <%= form_tag '/orders', method: :post do %>
+      <%= form_tag '/carted_products', method: :post do %>
       <div>
         <%= label_tag :quantity %>
         <%= text_field_tag :quantity %>
@@ -48,7 +48,7 @@
       </div>
 
       <div>
-      <%= submit_tag "Buy Now" %>
+      <%= submit_tag "Add to Cart" %>
       </div>
     </div>
     <% end %>

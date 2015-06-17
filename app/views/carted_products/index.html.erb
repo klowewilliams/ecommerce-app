@@ -1,0 +1,11 @@
+<h1> Your Cart </h1>
+
+  <p><% @carted_products.each do |carted_product| %></p>
+  <p>Product: <%= carted_product.product.name %> </p>
+  <p>User: <%= carted_product.user.email %></p>
+  <p>Quantity: <%= carted_product.quantity %></p>
+  <button type="button" class="btn btn-default"><%= link_to "Remove this item", "/carted_products/#{carted_product.id}", method: :delete %></button>
+<% end %>
+<div>
+<button type="button" class="btn btn-success"> <%= link_to "Buy Now", "/orders", method: :post %></button>
+</div>
