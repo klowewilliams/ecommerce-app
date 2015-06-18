@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    unless current_user.admin
+    unless user_signed_in? && current_user.admin
       redirect_to "/"
     end
   end
@@ -54,6 +54,9 @@ class ProductsController < ApplicationController
   def edit
     product_id = params[:id]
     @nut = Product.find_by(id: product_id)
+    unless user_signed_in? && current_user.admin
+      redirect_to "/"
+    end
   end
 
   def update
@@ -70,6 +73,9 @@ class ProductsController < ApplicationController
     @nut.destroy
     flash[:danger] = "No more nut!"
     redirect_to "/products"
+    unless user_signed_in? && current_user.admin
+      redirect_to "/"
+    end
   end
 
   def search
