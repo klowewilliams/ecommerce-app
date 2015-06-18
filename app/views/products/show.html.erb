@@ -25,7 +25,8 @@
     <h4>Total price: <%= number_to_currency(@nut.total) %></h4>
     <div class="row">
       <div class="col-md-3">
-       <button type="button" class="btn btn-success"> <%= link_to "Edit this page", "/products/#{@nut.id}/edit" %></button>
+      <% if current_user.admin %>
+       <button type="button" class="btn btn-success"> <%= link_to "Edit this page", "/products/#{@nut.id}/edit" %></button><% end %>
      </div>
      <div class="col-md-3">
      </div>
