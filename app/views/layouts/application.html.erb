@@ -36,8 +36,6 @@
               <% Category.all.each do |category| %>
               <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
               <% end %>
-              <li class="divider"></li>
-              <li><a href="#">On the Go</a></li>
             </ul>
           </li>
         </ul>
@@ -49,17 +47,17 @@
        <%= submit_tag "Search", class: "btn btn-default", type: "submit" %>
        <% end %>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
 
-       <li><%= link_to "Sign In", "/users/sign_in" if not current_user %></li>
-       <li><%= link_to "Sign Up", "/users/sign_up" if not current_user %></li>
-       <li><span class="glyphicon glyphicon-shopping-cart"></span><%= link_to "Shopping Cart", "/carted_products" %></li>
+         <li><%= link_to "Sign In", "/users/sign_in" if not current_user %></li>
+         <li><%= link_to "Sign Up", "/users/sign_up" if not current_user %></li>
+         <li><span class="glyphicon glyphicon-shopping-cart"></span><%= link_to "Shopping Cart", "/carted_products" %></li>
        </ul>
-       </div>
+     </div>
 
-       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></li>
+     <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></li>
 
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other Resources <span class="caret"></span></a>
