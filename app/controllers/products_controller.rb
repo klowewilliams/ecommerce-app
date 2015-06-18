@@ -35,6 +35,9 @@ class ProductsController < ApplicationController
   end
 
   def new
+    unless current_user.admin
+      redirect_to "/"
+    end
   end
 
   def create
