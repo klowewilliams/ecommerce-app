@@ -1,10 +1,11 @@
 class CartedProductsController < ApplicationController
 
   def index
-    if current_user
+    if user_signed_in? && current_user.carted_products.where(status: "carted").any?
       @carted_products = current_user.carted_products.where(status: "carted")
     else
-      redirect_to :new_user_session
+      flash[:warning] = "You have no items in your shopping cart."
+      redirect_to "/"
     end
   end
 
@@ -24,5 +25,4 @@ class CartedProductsController < ApplicationController
     flash[:danger] = "You have removed this item from your cart"
     redirect_to :carted_products
   end
-
 end
