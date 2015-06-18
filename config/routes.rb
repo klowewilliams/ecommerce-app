@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'products#index'
+  
   get "/products" => 'products#index'
   get "/pistachios" => 'products#pistachios'
   get "/almonds" => 'products#almonds'
@@ -13,9 +14,11 @@ Rails.application.routes.draw do
   patch "products/:id" => 'products#update'
   delete "/products/:id" => 'products#destroy'
   post "/search" => 'products#search'
+  
   post "/orders" => 'orders#create'
   get "/orders/:id" => 'orders#show'
+  
+  get "/carted_products" => 'carted_products#index'
   post "/carted_products" => 'carted_products#create'
-  get "/carted_products/index" => 'carted_products#index'
   delete "/carted_products/:id" => 'carted_products#destroy'
 end
