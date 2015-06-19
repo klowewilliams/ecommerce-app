@@ -10,12 +10,13 @@ class CartedProductsController < ApplicationController
   end
 
   def create
-    if current_user
-      carted_product = CartedProduct.create(user_id: current_user.id, product_id: params[:product_id], quantity: params[:quantity], status: "Carted")
+    @carted_product = CartedProduct.new(user_id: current_user.id, product_id: params[:product_id], quantity: params[:quantity], status: "Carted")
+    @nut = Product.find_by(id: params[:product_id])
 
-      redirect_to :carted_products
+    if @carted_product.save
+      redirect_to "/carted_products"
     else
-      redirect_to :new_user_session
+      render "/products/show"
     end
   end
 

@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:index, :show, :search]
+
   def index
     @nuts = Product.all
-     if params[:sort]
+    if params[:sort]
       @nuts = Product.order(params[:sort])
     end
 
@@ -25,38 +27,34 @@ class ProductsController < ApplicationController
       nuts = Product.all
       @nut = nuts.sample
     else
-    @nut = Product.find_by(id: params[:id])
+      @nut = Product.find_by(id: params[:id])
     end
 
     if params[:category]
       @nut = Product.find_by(name: params[:category]).products
     end
-
   end
 
   def new
-    unless user_signed_in? && current_user.admin
-      redirect_to "/"
-    end
   end
 
   def create
-    product = Product.create(name: params[:name], image: params[:image], price: params[:price], description: params[:description])
+    @product = Product.new(name: params[:name], price: params[:price], description: params[:description])
 
-    Image.create(product_id: @nut.id, image_url: params[:image_1]) if params[:image_1] != ""
-    Image.create(product_id: @nut.id, image_url: params[:image_2]) if params[:image_2] != ""
+    # Image.create(product_id: @nut.id, image_url: params[:image_1]) if params[:image_1] != ""
+    # Image.create(product_id: @nut.id, image_url: params[:image_2]) if params[:image_2] != ""
 
-
-    flash[:success] = "You've added a new nut! Welcome to the asylum."
-    redirect_to "/products/#{product.id}"
+    if @product.save
+      flash[:success] = "You've added a new nut! Welcome to the asylum."
+      redirect_to "/products/#{product.id}"
+    else
+      render "/products/new"
+    end
   end
 
   def edit
     product_id = params[:id]
     @nut = Product.find_by(id: product_id)
-    unless user_signed_in? && current_user.admin
-      redirect_to "/"
-    end
   end
 
   def update
@@ -73,9 +71,6 @@ class ProductsController < ApplicationController
     @nut.destroy
     flash[:danger] = "No more nut!"
     redirect_to "/products"
-    unless user_signed_in? && current_user.admin
-      redirect_to "/"
-    end
   end
 
   def search
@@ -85,4 +80,10 @@ class ProductsController < ApplicationController
     #Don't look for a view to match this action
   end
 
+  private ########################
+  def authenticate_admin!
+    unless user_signed_in? && current_user.admin
+      redirect_to "/"
+    end
+  end
 end

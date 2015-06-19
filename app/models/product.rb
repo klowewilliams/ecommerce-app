@@ -6,6 +6,14 @@ class Product < ActiveRecord::Base
   has_many :carted_products
   belongs_to :supplier
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, numericality: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :description, uniqueness: true
+
+
   def sale_message
     if price < 2
       return " Discount Item"

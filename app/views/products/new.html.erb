@@ -1,35 +1,35 @@
+<% if @product && @product.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@product.errors.count, "error") %> prohibited this nut from being created:</h2>
+
+  <ul>
+  <% @product.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <h2> Use this form for adding a new product </h2>
 
 <%= form_tag '/products', method: :post do %>
-  <div>
+<div>
   <%= label_tag :name %>
-  <%= text_field_tag :name %>
-  </div>
+  <%= text_field_tag :name, @product ? @product.name : nil%>
+</div>
 
-  <div>
-  <%= label_tag :image_1 %>
-  <!-- <%= file_field_tag :image %> -->
-  <%= text_field_tag :image_1 %>
-  </div>
-
-  <div>
-  <%= label_tag :image_2 %>
-  <!-- <%= file_field_tag :image %> -->
-  <%= text_field_tag :image_2 %>
-  </div>
-
-  <div>
+<div>
   <%= label_tag :price %>
-  <%= text_field_tag :price %>
-  </div>
+  <%= text_field_tag :price, @product ? @product.price : nil %>
+</div>
 
-  <div>
+<div>
   <%= label_tag :description %>
-  <%= text_field_tag :description %>
-  </div>
+  <%= text_field_tag :description, @product ? @product.description : nil %>
+</div>
 
-  <div>
+<div>
   <%= submit_tag "New Product" %>
-  </div>
+</div>
 
 <% end %>

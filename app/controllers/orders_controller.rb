@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id])
+    # if @order.user_id != current_user.id
+    #   redirect_to "/"
+    # end
   end
 
   #after this works it should be move to the Model instead of being in the Controller (this is the non-elegant version)
@@ -17,7 +20,7 @@ class OrdersController < ApplicationController
       @carted_products.each do |carted_product|
         @subtotal += carted_product.product.price * carted_product.quantity
       end
-        
+      
       @tax = @subtotal * SALES_TAX
       @total = @subtotal + @tax
 
