@@ -22,6 +22,15 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.find_by(id: params[:id])
   end
 
+  def update
+    supplier_id = params[:id]
+    @supplier = Supplier.find_by(id: supplier_id)
+    @supplier.update(supplier_params)
+
+    flash[:info] = "Supplier updated!"
+    redirect_to "/suppliers/#{supplier_id}"
+  end
+
   private
 
   def supplier_params
