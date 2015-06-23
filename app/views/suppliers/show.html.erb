@@ -1,0 +1,15 @@
+<h1>Supplier Info</h1>
+
+<div class="supplier">
+  <div>
+    Supplier: <%= @supplier.name %>
+  </div>
+  <div>
+    Email: <%= @supplier.email %>
+  </div>
+  <div>
+    Phone: <%= @supplier.phone %>
+  </div>
+  <div>
+    <%= link_to "Edit", "/suppliers/#{@supplier.id}/edit" %>
+  </div>
